@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal - NarutoProject</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            margin: 0;
+            background: #000 url("Background2.png") fixed center top;
+            background-size: cover;
+            color: #333;
+        }
+
+        .container {
+            width: 1450px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #333;
+        }
+
+        header {
+            background: url("Banner.png") no-repeat center center;
+            background-size: cover;
+            height: 150px;
+            position: relative;
+            border-bottom: 5px solid #ff8c00;
+        }
+
+        .logo {
+            padding: 20px;
+        }
+
+        .logo img {
+            max-height: 100px;
+        }
+
+        .status-box {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 11px;
+            border: 1px solid #555;
+        }
+
+        .layout-wrapper {
+            display: flex;
+        }
+
+        aside {
+            width: 200px;
+            background-color: #f0f0f0;
+            border-right: 1px solid #ccc;
+            min-height: 600px;
+        }
+
+        .menu-block {
+            margin-bottom: 15px;
+        }
+
+        .menu-title {
+            background: linear-gradient(to bottom, #f9f9f9, #d5d5d5);
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #555;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #aaa;
+            text-transform: uppercase;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-list li {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-list li a {
+            display: block;
+            padding: 6px 10px 6px 20px;
+            font-size: 11px;
+            color: #333;
+            text-decoration: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="2" fill="%23888"/></svg>') no-repeat 8px center;
+        }
+
+        .menu-list li a:hover {
+            background-color: #fff;
+            color: #ff8c00;
+        }
+
+        main {
+            flex: 1;
+            padding: 15px;
+            background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><rect width="2" height="2" fill="%23f9f9f9"/></svg>');
+        }
+
+        .content-box {
+            background-color: #ff9933;
+            border: 1px solid #d35400;
+            padding: 15px;
+            min-height: 400px;
+        }
+
+        .content-box h1 {
+            font-family: Impact, sans-serif;
+            font-size: 28px;
+            color: #fff;
+            margin-top: 0;
+            text-shadow: 2px 2px 0px #d35400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px dashed #fff;
+            padding-bottom: 5px;
+        }
+
+        .content-box h2 {
+            font-size: 16px;
+            color: #b30000;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #b30000;
+        }
+
+        .content-box p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .retro-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        .retro-table th {
+            background-color: #d35400;
+            color: #fff;
+            padding: 6px;
+            text-align: left;
+            border: 1px solid #a04000;
+        }
+
+        .retro-table td {
+            background-color: #ffb84d;
+            padding: 6px;
+            border: 1px solid #d35400;
+            color: #000;
+        }
+
+        .retro-table tr:nth-child(even) td {
+            background-color: #ffa31a;
+        }
+
+        .retro-table a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .retro-table a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        .image-right {
+            float: right;
+            margin: 0 0 10px 15px;
+            border: 2px solid #d35400;
+        }
+
+        .image-left {
+            float: left;
+            margin: 0 15px 10px 0;
+            border: 2px solid #d35400;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .item-section {
+            margin-bottom: 20px;
+        }
+
+        .item-section h3 {
+            font-size: 14px;
+            color: #cc0000;
+            margin: 0 0 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="NarutoProject.html"><img src="logo.png" alt="Naruto Project logo"></a>
+            </div>
+            <div class="status-box">
+                Online: 248 | Visitantes: 1.024
+            </div>
+        </header>
+        <div class="layout-wrapper">
+            <aside>
+                <div class="menu-block">
+                    <div class="menu-title">» narutoPROJECT</div>
+                    <ul class="menu-list">
+                        <li><a href="Sobre.html">Sobre</a></li>
+                        <li><a href="Equipe.html">Equipe</a></li>
+                    </ul>
+                </div>
+                <div class="menu-block">
+                    <div class="menu-title">» Curiosidades</div>
+                    <ul class="menu-list">
+                        <li><a href="Hokages.html">Hokages</a></li>
+                        <li><a href="Openings.html">Openings</a></li>
+                        <li><a href="Filmes.html">Filmes</a></li>
+                        <li><a href="Volumes.html">Volumes</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main>
+                <div class="content-box">
+                    <h1>Sobre o projeto</h1>
+                    <p><strong>Nome do projeto:</strong> NarutoProject<br>
+                        <strong>Componente Curricular:</strong> Programação Web Frontend<br>
+                        <strong>Curso:</strong> Sistemas de Informação (Unifacisa)<br>
+                        <strong>Estudante:</strong> Gutemberg Nascimento Cunha Garcez
+                    </p>
+
+                    <h2>1. Introdução e Objetivo</h2>
+                    <p>O NarutoProject é uma aplicação web estática desenvolvida com o objetivo de recriar e homenagear
+                        a estética visual e a experiência do usuário (UX) típicas dos portais, blogs e fã-clubes de
+                        anime do início dos anos 2010. O projeto busca alinhar a estrutura moderna de marcação e
+                        estilização web com elementos clássicos e nostálgicos da cultura da internet daquela década,
+                        como contadores de acessos em tempo real, paletas de cores contrastantes, menus laterais bem
+                        definidos, layouts encaixotados (boxed layout) e forte apelo temático.</p>
+
+                    <h2>2. Arquitetura e Estrutura de Código (HTML5)</h2>
+                    <p>A estrutura das páginas foi projetada utilizando a semântica da especificação HTML5, assegurando
+                        acessibilidade e indexação adequadas. A aplicação é dividida em blocos lógicos estruturais:</p>
+                    <p><strong>Header (&lt;header&gt;):</strong> Define a identidade visual do projeto, exibindo o
+                        logotipo principal e um painel simulado de estatísticas de tráfego (usuários online e total de
+                        visitantes), recurso indispensável nos blogs clássicos.</p>
+                    <p><strong>Sidebar (&lt;aside&gt;):</strong> Uma barra de navegação lateral organizada de forma
+                        hierárquica por meio de listas não ordenadas (&lt;ul&gt;), dividida entre as seções de
+                        "Informações" institucionais e "Curiosidades".</p>
+                    <p><strong>Main Content (&lt;main&gt; e &lt;section&gt;):</strong> Área central reservada para a
+                        exibição de conteúdos e páginas específicas, caracterizada pelo marcante fundo laranja vibrante
+                        da identidade visual da franquia.</p>
+
+                    <h2>3. Estilização e Design System (CSS)</h2>
+                    <p>A folha de estilos foi estruturada para produzir fielmente a identidade visual retro dos anos
+                        2010, fazendo uso de regras CSS limpas e integradas às tags HTML5:</p>
+                    <p><strong>Layout e Alinhamento:</strong> Utilizou-se o modelo Flexbox para estruturar a disposição
+                        espacial da barra lateral e da área de conteúdo, assegurando o alinhamento adequado sem a
+                        necessidade de tabelas de layout invisíveis (prática comum na época), enquanto se mantém o
+                        visual simétrico e encaixotado tradicional.</p>
+                    <p><strong>Estética e Cores:</strong> A paleta cromática destaca blocos sólidos e intensos, com o
+                        laranja (#ff9933) no painel principal, tons de cinza nos menus e cabeçalhos, e o uso de fontes
+                        pequenas sem serifa (Verdana/Arial, 11-12px) para simular a densidade de informação dos portais
+                        antigos.</p>
+                    <p><strong>Elementos Gráficos e Tipografia:</strong> O design faz uso de imagens de fundo fixas
+                        (paralaxe simulada), bordas sólidas marcantes e títulos estilizados com fonte <em>Impact</em>,
+                        cores contrastantes e sombras projetadas (<em>text-shadow</em>).</p>
+                    <p><strong>Otimização de Recursos:</strong> Para evitar o carregamento lento de dezenas de pequenos
+                        arquivos de imagem (como GIFs ou PNGs para ícones e texturas), foram utilizados SVGs modernos
+                        incorporados em formato Data URI diretamente no CSS para renderizar os marcadores de lista e os
+                        padrões sutilmente texturizados de fundo.</p>
+
+                    <h2>4. Requisitos do Projeto Atendidos</h2>
+                    <p>Este projeto cumpre plenamente todas as especificações e exigências do componente curricular:</p>
+                    <ul>
+                        <li style="margin-bottom: 10px; font-size: 12px; line-height: 1.6; color: #000;">
+                            <strong>Ao menos 3 telas HTML que são ligadas entre si através da tag &lt;a&gt;:</strong>
+                            O projeto possui 7 telas interconectadas através do menu lateral na tag &lt;aside&gt;
+                            utilizando links &lt;a&gt; (NarutoProject.html, Principal.html, Equipe.html, Hokages.html,
+                            Openings.html, Filmes.html e Volumes.html).
+                        </li>
+                        <li style="margin-bottom: 10px; font-size: 12px; line-height: 1.6; color: #000;">
+                            <strong>Todas as tags obrigatórias apresentadas em sala de aula:</strong>
+                            Uso correto e integrado de todas as tags exigidas:
+                            <ul style="margin-top: 5px; margin-left: 20px; list-style-type: square;">
+                                <li><strong>&lt;div&gt;:</strong> Utilizada para estruturar e organizar o layout de
+                                    todas as páginas (containers, wrappers, flexboxes e caixas de conteúdo).</li>
+                                <li><strong>&lt;p&gt;:</strong> Utilizada para os parágrafos de texto em todas as
+                                    páginas (como na introdução de Principal.html, sinopses de Filmes.html e biografia
+                                    de Equipe.html).</li>
+                                <li><strong>&lt;a&gt;:</strong> Utilizada em links de navegação lateral (menu) e links
+                                    externos (para aberturas no YouTube e repositório GitHub).</li>
+                                <li><strong>&lt;h1&gt; (e &lt;h2&gt;):</strong> Utilizada para estruturar a hierarquia
+                                    de títulos, sendo o &lt;h1&gt; o título principal de cada página e o &lt;h2&gt; os
+                                    subtítulos.</li>
+                                <li><strong>&lt;ul&gt; (e &lt;li&gt;):</strong> Utilizada para criar as listas não
+                                    ordenadas dos blocos de menu na barra lateral de navegação e para esta lista de
+                                    requisitos.</li>
+                                <li><strong>&lt;img&gt;:</strong> Utilizada na exibição do logotipo oficial, banner
+                                    superior, fotos de perfil da equipe, pôsteres dos filmes e capas dos volumes.</li>
+                                <li><strong>&lt;input&gt;:</strong> Utilizada para os campos de entrada de texto e de
+                                    senha no formulário da Área de Membros em NarutoProject.html.</li>
+                                <li><strong>&lt;button&gt;:</strong> Utilizada para o botão de envio ("Entrar") no
+                                    formulário de login em NarutoProject.html.</li>
+                                <li><strong>&lt;table&gt; (com &lt;thead&gt;, &lt;tbody&gt;, &lt;tr&gt;, &lt;th&gt; e
+                                        &lt;td&gt;):</strong> Utilizada para construir a tabela de visualização de
+                                    aberturas de músicas em Openings.html.</li>
+                            </ul>
+                        </li>
+                        <li style="margin-bottom: 10px; font-size: 12px; line-height: 1.6; color: #000;">
+                            <strong>Estrutura de HTML semântico:</strong>
+                            Organização do código utilizando elementos semânticos da especificação moderna do HTML5 para
+                            melhor estruturação e indexação, como &lt;header&gt;, &lt;aside&gt;, &lt;main&gt;,
+                            &lt;table&gt;, &lt;thead&gt;, &lt;tbody&gt;, &lt;form&gt; e &lt;label&gt;.
+                        </li>
+                        <li style="margin-bottom: 10px; font-size: 12px; line-height: 1.6; color: #000;">
+                            <strong>Organização de informações reais e contextualizadas:</strong>
+                            Todo o conteúdo do site faz sentido com o tema geral (Naruto), incluindo as 20 aberturas
+                            oficiais do anime (com links correspondentes no YouTube), sinopses reais e oficiais dos 11
+                            filmes, capas coloridas oficiais dos 72 volumes do mangá e biografia real da equipe de
+                            desenvolvimento.
+                        </li>
+                        <li style="margin-bottom: 10px; font-size: 12px; line-height: 1.6; color: #000;">
+                            <strong>Comunicação visual clara:</strong>
+                            Layout unificado de 1450px de largura em todas as páginas, assegurando consistência na
+                            navegação e perfeita harmonia estética.
+                        </li>
+                    </ul>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -4,68 +4,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hokages - NarutoProject</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; color: #eee; background: #000000 url("Background2.png") no-repeat center center fixed; background-size: cover; }
-        a { text-decoration: none; color: #ff9d00; }
-        .container { max-width: 1500px; margin: 0 auto; background-color: rgba(73, 73, 73, 0.9); }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: url("Banner.png") no-repeat center center; background-size: cover; border-bottom: 3px solid #ff9d00; }
-        .logo img { max-height: 100px; width: auto; }
-        .status { text-align: right; font-size: 12px; }
-        .button-return { display: inline-block; background: #ff9d00; color: #000; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: bold; margin-left: 20px; text-decoration: none; }
-        .button-return:hover { background: #ffd07f; }
-        .content-body { padding: 40px; text-align: center; }
+        body { 
+            font-family: Verdana, Arial, sans-serif; 
+            margin: 0; 
+            background: #000 url("Background2.png") fixed center top; 
+            background-size: cover;
+            color: #333; 
+        }
+        .container { 
+            width: 1450px; 
+            margin: 0 auto; 
+            background-color: #fff; 
+            border: 1px solid #333; 
+        }
+        header { 
+            background: url("Banner.png") no-repeat center center; 
+            background-size: cover; 
+            height: 150px; 
+            position: relative; 
+            border-bottom: 5px solid #ff8c00;
+        }
+        .logo { padding: 20px; }
+        .logo img { max-height: 100px; }
+        .status-box { 
+            position: absolute; 
+            bottom: 10px; 
+            right: 10px; 
+            background: rgba(0,0,0,0.7); 
+            color: #fff; 
+            padding: 5px 10px; 
+            font-size: 11px; 
+            border: 1px solid #555;
+        }
+        .layout-wrapper { display: flex; }
+        aside { 
+            width: 200px; 
+            background-color: #f0f0f0; 
+            border-right: 1px solid #ccc; 
+            min-height: 600px;
+        }
+        .menu-block { margin-bottom: 15px; }
+        .menu-title { 
+            background: linear-gradient(to bottom, #f9f9f9, #d5d5d5); 
+            padding: 5px 10px; 
+            font-size: 12px; 
+            font-weight: bold; 
+            color: #555; 
+            border-top: 1px solid #fff; 
+            border-bottom: 1px solid #aaa; 
+            text-transform: uppercase;
+        }
+        .menu-list { list-style: none; padding: 0; margin: 0; }
+        .menu-list li { border-bottom: 1px solid #ddd; }
+        .menu-list li a { 
+            display: block; 
+            padding: 6px 10px 6px 20px; 
+            font-size: 11px; 
+            color: #333; 
+            text-decoration: none; 
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="2" fill="%23888"/></svg>') no-repeat 8px center; 
+        }
+        .menu-list li a:hover { background-color: #fff; color: #ff8c00; }
+        
+        main { 
+            flex: 1; 
+            padding: 15px; 
+            background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><rect width="2" height="2" fill="%23f9f9f9"/></svg>'); 
+        }
+        .content-box { 
+            background-color: #ff9933; 
+            border: 1px solid #d35400; 
+            padding: 15px; 
+            min-height: 400px;
+        }
+        .content-box h1 { 
+            font-family: Impact, sans-serif; 
+            font-size: 28px; 
+            color: #fff; 
+            margin-top: 0; 
+            text-shadow: 2px 2px 0px #d35400; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px dashed #fff;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .item-section { 
+            margin-bottom: 25px; 
+            border-bottom: 1px dotted #a04000; 
+            padding-bottom: 15px;
+        }
+        .item-section h3 { 
+            font-size: 16px; 
+            color: #b30000; 
+            margin: 0 0 10px 0; 
+        }
+        .item-section p { 
+            font-size: 12px; 
+            line-height: 1.6; 
+            color: #000; 
+            margin: 0; 
+        }
+        
+        .image-right { float: right; margin: 0 0 10px 15px; border: 2px solid #d35400; background: #fff; padding: 2px; }
+        .image-left { float: left; margin: 0 15px 10px 0; border: 2px solid #d35400; background: #fff; padding: 2px; }
+        
+        .clear { clear: both; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <div class="logo">
-                <img src="logo.png" alt="Naruto Project logo">
+                <a href="NarutoProject.html"><img src="logo.png" alt="Naruto Project logo"></a>
             </div>
-            <div class="status">
-                <p>Online: 248</p>
-                <p>Visitantes: 1.024</p>
+            <div class="status-box">
+                Online: 248 | Visitantes: 1.024
             </div>
-            <a class="button-return" href="NarutoProject.html">Voltar à página principal</a>
+        </header>
+        <div class="layout-wrapper">
+            <aside>
+                <div class="menu-block">
+                    <div class="menu-title">» narutoPROJECT</div>
+                    <ul class="menu-list">
+                        <li><a href="Sobre.html">Sobre</a></li>
+                        <li><a href="Equipe.html">Equipe</a></li>
+                    </ul>
+                </div>
+                <div class="menu-block">
+                    <div class="menu-title">» Curiosidades</div>
+                    <ul class="menu-list">
+                        <li><a href="Hokages.html">Hokages</a></li>
+                        <li><a href="Openings.html">Openings</a></li>
+                        <li><a href="Filmes.html">Filmes</a></li>
+                        <li><a href="Volumes.html">Volumes</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main>
+                <div class="content-box">
+                    <h1>Hokages</h1>
+                    
+                    <div class="item-section">
+                        <h3>1º Hokage: Hashirama Senju</h3>
+                        <img src="Hokages/Hokage_Hashirama.webp" alt="Hashirama Senju" class="image-left" style="max-width: 140px; height: auto;">
+                        <p>Conhecido como o "Deus Shinobi", Hashirama foi o fundador de Konoha ao lado de Madara Uchiha. Usuário único da Liberação de Madeira (Mokuton), ele possuía uma força monumental e uma filosofia pacífica conhecida como a Vontade do Fogo, que serviu de base moral para todas as gerações futuras de ninjas.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>2º Hokage: Tobirama Senju</h3>
+                        <img src="Hokages/Tobirama.PNG.webp" alt="Tobirama Senju" class="image-right" style="max-width: 140px; height: auto;">
+                        <p>Irmão mais novo de Hashirama, Tobirama foi o grande construtor da infraestrutura política e social de Konoha, criando a Academia Ninja, o Exame Chunin e a Força Policial. Um estrategista frio e gênio do elemento Água (Suiton), ele também foi o inventor de jutsus lendários, como o Clone das Sombras e o Deus Voador do Trovão.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>3º Hokage: Hiruzen Sarutobi</h3>
+                        <img src="Hokages/Hiruzen.webp" alt="Hiruzen Sarutobi" class="image-left" style="max-width: 140px; height: auto;">
+                        <p>Apelidado de "O Professor" devido ao seu vasto conhecimento de praticamente todos os jutsus existentes na vila, Hiruzen governou Konoha pelo período mais longo. Ele liderou a vila através de grandes guerras mundiais ninjas e foi o mentor dos Três Sannin Lendários (Jiraiya, Tsunade e Orochimaru), sendo lembrado por seu espírito paternal.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>4º Hokage: Minato Namikaze</h3>
+                        <img src="Hokages/Minato_Hokage.webp" alt="Minato Namikaze" class="image-right" style="max-width: 140px; height: auto;">
+                        <p>O "Relâmpago Amarelo de Konoha" ganhou fama internacional por sua velocidade incomparável e pelo desenvolvimento do Rasengan. Seu governo foi tragicamente curto, pois ele sacrificou a própria vida para selar a Raposa de Nove Caudas (Kurama) dentro de seu filho recém-nascido, Naruto, salvando a vila da destruição total.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>5ª Hokage: Tsunade Senju</h3>
+                        <img src="Hokages/Tsunade_como_Hokage.PNG.webp" alt="Tsunade Senju" class="image-left" style="max-width: 140px; height: auto;">
+                        <p>Neta de Hashirama e a primeira mulher a assumir o posto, Tsunade é considerada a maior ninja médica de todos os tempos. Ela assumiu a liderança em um momento de profunda crise após a morte de Hiruzen, revolucionando o sistema de saúde ninja e usando sua força bruta e habilidades de cura para proteger a população durante a invasão de Pain.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>6º Hokage: Kakashi Hatake</h3>
+                        <img src="Hokages/Kakashi_29.webp" alt="Kakashi Hatake" class="image-right" style="max-width: 140px; height: auto;">
+                        <p>O lendário "Ninja Copiador" assumiu o chapéu de Hokage após a Quarta Guerra Mundial Shinobi. Mesmo sem o Sharingan, Kakashi usou sua genialidade tática, diplomacia e vasta experiência para liderar Konoha em um período de intensa reconstrução e transição tecnológica, pavimentando o caminho para a era moderna de paz.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section" style="border-bottom: none;">
+                        <h3>7º Hokage: Naruto Uzumaki</h3>
+                        <img src="Hokages/Naruto_29.webp" alt="Naruto Uzumaki" class="image-left" style="max-width: 140px; height: auto;">
+                        <p>O grande herói da Quarta Guerra Mundial Shinobi realizou o sonho de sua infância ao se tornar o Sétimo Hokage. Carregando o poder de todas as Bestas com Cauda e uma determinação inabalável, Naruto transformou Konoha em uma metrópole tecnológica e expandiu a paz global, unindo as cinco grandes nações ninja como nunca antes na história.</p>
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+            </main>
         </div>
-        <main class="content-body">
-            <h1>Hokages</h1>
-            <section>
-                <h2>1º Hokage: Hashirama Senju</h2>
-                <img src="Hokages/Hokage_Hashirama.webp" alt="Hashirama Senju" style="max-width: 100%; height: auto; border: 3px solid #ff9d00; border-radius: 8px; margin: 20px 0;">
-                <p>Conhecido como o "Deus Shinobi", Hashirama foi o fundador de Konoha ao lado de Madara Uchiha. Usuário único da Liberação de Madeira (Mokuton), ele possuía uma força monumental e uma filosofia pacífica conhecida como a Vontade do Fogo, que serviu de base moral para todas as gerações futuras de ninjas.</p>
-            </section>
-            <section>
-                <h2>2º Hokage: Tobirama Senju</h2>
-                <img src="Hokages/Tobirama.PNG.webp" alt="Tobirama Senju" style="max-width: 100%; height: auto; border: 3px solid #ff9d00; border-radius: 8px; margin: 20px 0;">
-                <p>Irmão mais novo de Hashirama, Tobirama foi o grande construtor da infraestrutura política e social de Konoha, criando a Academia Ninja, o Exame Chunin e a Força Policial. Um estrategista frio e gênio do elemento Água (Suiton), ele também foi o inventor de jutsus lendários, como o Clone das Sombras e o Deus Voador do Trovão.</p>
-            </section>
-            <section>
-                <h2>3º Hokage: Hiruzen Sarutobi</h2>
-                <img src="Hokages/Hiruzen.webp" alt="Hiruzen Sarutobi" style="max-width: 100%; height: auto; border: 3px solid #ff9d00; border-radius: 8px; margin: 20px 0;">
-                <p>Apelidado de "O Professor" devido ao seu vasto conhecimento de praticamente todos os jutsus existentes na vila, Hiruzen governou Konoha pelo período mais longo. Ele liderou a vila através de grandes guerras mundiais ninjas e foi o mentor dos Três Sannin Lendários (Jiraiya, Tsunade e Orochimaru), sendo lembrado por seu espírito paternal.</p>
-            </section>
-            <section>
-                <h2>4º Hokage: Minato Namikaze</h2>
-                <img src="Hokages/Minato_Hokage.webp" alt="Minato Namikaze" style="max-width: 100%; height: auto; border: 3px solid #ff9d00; border-radius: 8px; margin: 20px 0;">
-                <p>O "Relâmpago Amarelo de Konoha" ganhou fama internacional por sua velocidade incomparável e pelo desenvolvimento do Rasengan. Seu governo foi tragicamente curto, pois ele sacrificou a própria vida para selar a Raposa de Nove Caudas (Kurama) dentro de seu filho recém-nascido, Naruto, salvando a vila da destruição total.</p>
-            </section>
-            <section>
-                <h2>5ª Hokage: Tsunade Senju</h2>
-                <img src="Hokages/Tsunade_como_Hokage.PNG.webp" alt="Tsunade Senju" style="max-width: 100%; height: auto; border: 3px solid #ff9d00; border-radius: 8px; margin: 20px 0;">
-                <p>Neta de Hashirama e a primeira mulher a assumir o posto, Tsunade é considerada a maior ninja médica de todos os tempos. Ela assumiu a liderança em um momento de profunda crise após a morte de Hiruzen, revolucionando o sistema de saúde ninja e usando sua força bruta e habilidades de cura para proteger a população durante a invasão de Pain.</p>
-            </section>
-            <section>
-                <h2>6º Hokage: Kakashi Hatake</h2>
-                <img src="Hokages/Kakashi_29.webp" alt="Kakashi Hatake" style="max-width: 100%; height: auto; border: 3px solid #ff9d00; border-radius: 8px; margin: 20px 0;">
-                <p>O lendário "Ninja Copiador" assumiu o chapéu de Hokage após a Quarta Guerra Mundial Shinobi. Mesmo sem o Sharingan, Kakashi usou sua genialidade tática, diplomacia e vasta experiência para liderar Konoha em um período de intensa reconstrução e transição tecnológica, pavimentando o caminho para a era moderna de paz.</p>
-            </section>
-            <section>
-                <h2>7º Hokage: Naruto Uzumaki</h2>
-                <img src="Hokages/Naruto_29.webp" alt="Naruto Uzumaki" style="max-width: 100%; height: auto; border: 3px solid #ff9d00; border-radius: 8px; margin: 20px 0;">
-                <p>O grande herói da Quarta Guerra Mundial Shinobi realizou o sonho de sua infância ao se tornar o Sétimo Hokage. Carregando o poder de todas as Bestas com Cauda e uma determinação inabalável, Naruto transformou Konoha em uma metrópole tecnológica e expandiu a paz global, unindo as cinco grandes nações ninja como nunca antes na história.</p>
-            </section>
-        </main>
     </div>
 </body>
 </html>

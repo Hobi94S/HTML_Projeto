@@ -4,34 +4,447 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volumes - NarutoProject</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; color: #eee; background: #000000 url("Background2.png") no-repeat center center fixed; background-size: cover; }
-        a { text-decoration: none; color: #ff9d00; }
-        .container { max-width: 1500px; margin: 0 auto; background-color: rgba(73, 73, 73, 0.9); }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: url("Banner.png") no-repeat center center; background-size: cover; border-bottom: 3px solid #ff9d00; }
-        .logo img { max-height: 100px; width: auto; }
-        .status { text-align: right; font-size: 12px; }
-        .button-return { display: inline-block; background: #ff9d00; color: #000; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: bold; margin-left: 20px; text-decoration: none; }
-        .button-return:hover { background: #ffd07f; }
-        .content-body { padding: 40px; text-align: center; }
+        body { 
+            font-family: Verdana, Arial, sans-serif; 
+            margin: 0; 
+            background: #000 url("Background2.png") fixed center top; 
+            background-size: cover;
+            color: #333; 
+        }
+        .container { 
+            width: 1450px; 
+            margin: 0 auto; 
+            background-color: #fff; 
+            border: 1px solid #333; 
+        }
+        header { 
+            background: url("Banner.png") no-repeat center center; 
+            background-size: cover; 
+            height: 150px; 
+            position: relative; 
+            border-bottom: 5px solid #ff8c00;
+        }
+        .logo { padding: 20px; }
+        .logo img { max-height: 100px; }
+        .status-box { 
+            position: absolute; 
+            bottom: 10px; 
+            right: 10px; 
+            background: rgba(0,0,0,0.7); 
+            color: #fff; 
+            padding: 5px 10px; 
+            font-size: 11px; 
+            border: 1px solid #555;
+        }
+        .layout-wrapper { display: flex; }
+        aside { 
+            width: 200px; 
+            background-color: #f0f0f0; 
+            border-right: 1px solid #ccc; 
+            min-height: 600px;
+        }
+        .menu-block { margin-bottom: 15px; }
+        .menu-title { 
+            background: linear-gradient(to bottom, #f9f9f9, #d5d5d5); 
+            padding: 5px 10px; 
+            font-size: 12px; 
+            font-weight: bold; 
+            color: #555; 
+            border-top: 1px solid #fff; 
+            border-bottom: 1px solid #aaa; 
+            text-transform: uppercase;
+        }
+        .menu-list { list-style: none; padding: 0; margin: 0; }
+        .menu-list li { border-bottom: 1px solid #ddd; }
+        .menu-list li a { 
+            display: block; 
+            padding: 6px 10px 6px 20px; 
+            font-size: 11px; 
+            color: #333; 
+            text-decoration: none; 
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="2" fill="%23888"/></svg>') no-repeat 8px center; 
+        }
+        .menu-list li a:hover { background-color: #fff; color: #ff8c00; }
+        
+        main { 
+            flex: 1; 
+            padding: 15px; 
+            background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><rect width="2" height="2" fill="%23f9f9f9"/></svg>'); 
+        }
+        .content-box { 
+            background-color: #ff9933; 
+            border: 1px solid #d35400; 
+            padding: 15px; 
+            min-height: 400px;
+        }
+        .content-box h1 { 
+            font-family: Impact, sans-serif; 
+            font-size: 28px; 
+            color: #fff; 
+            margin-top: 0; 
+            text-shadow: 2px 2px 0px #d35400; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px dashed #fff;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .volumes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .volume-item {
+            text-align: center;
+        }
+        
+        .volume-item img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #d35400;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .volume-item span {
+            font-size: 11px;
+            font-weight: bold;
+            color: #000;
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <div class="logo">
-                <img src="logo.png" alt="Naruto Project logo">
+                <a href="NarutoProject.html"><img src="logo.png" alt="Naruto Project logo"></a>
             </div>
-            <div class="status">
-                <p>Online: 248</p>
-                <p>Visitantes: 1.024</p>
+            <div class="status-box">
+                Online: 248 | Visitantes: 1.024
             </div>
-            <a class="button-return" href="NarutoProject.html">Voltar à página principal</a>
+        </header>
+        <div class="layout-wrapper">
+            <aside>
+                <div class="menu-block">
+                    <div class="menu-title">» narutoPROJECT</div>
+                    <ul class="menu-list">
+                        <li><a href="Sobre.html">Sobre</a></li>
+                        <li><a href="Equipe.html">Equipe</a></li>
+                    </ul>
+                </div>
+                <div class="menu-block">
+                    <div class="menu-title">» Curiosidades</div>
+                    <ul class="menu-list">
+                        <li><a href="Hokages.html">Hokages</a></li>
+                        <li><a href="Openings.html">Openings</a></li>
+                        <li><a href="Filmes.html">Filmes</a></li>
+                        <li><a href="Volumes.html">Volumes</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main>
+                <div class="content-box">
+                    <h1>Volumes</h1>
+                    
+                    <div class="volumes-grid">
+                        <div class="volume-item">
+                            <img src="Capas/volume_01.jpg" alt="Volume 01">
+                            <span>Volume 01</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_02.jpg" alt="Volume 02">
+                            <span>Volume 02</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_03.jpg" alt="Volume 03">
+                            <span>Volume 03</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_04.jpg" alt="Volume 04">
+                            <span>Volume 04</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_05.jpg" alt="Volume 05">
+                            <span>Volume 05</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_06.jpg" alt="Volume 06">
+                            <span>Volume 06</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_07.jpg" alt="Volume 07">
+                            <span>Volume 07</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_08.jpg" alt="Volume 08">
+                            <span>Volume 08</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_09.jpg" alt="Volume 09">
+                            <span>Volume 09</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_10.jpg" alt="Volume 10">
+                            <span>Volume 10</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_11.jpg" alt="Volume 11">
+                            <span>Volume 11</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_12.jpg" alt="Volume 12">
+                            <span>Volume 12</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_13.jpg" alt="Volume 13">
+                            <span>Volume 13</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_14.jpg" alt="Volume 14">
+                            <span>Volume 14</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_15.jpg" alt="Volume 15">
+                            <span>Volume 15</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_16.jpg" alt="Volume 16">
+                            <span>Volume 16</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_17.jpg" alt="Volume 17">
+                            <span>Volume 17</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_18.jpg" alt="Volume 18">
+                            <span>Volume 18</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_19.jpg" alt="Volume 19">
+                            <span>Volume 19</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_20.jpg" alt="Volume 20">
+                            <span>Volume 20</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_21.jpg" alt="Volume 21">
+                            <span>Volume 21</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_22.jpg" alt="Volume 22">
+                            <span>Volume 22</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_23.jpg" alt="Volume 23">
+                            <span>Volume 23</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_24.jpg" alt="Volume 24">
+                            <span>Volume 24</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_25.jpg" alt="Volume 25">
+                            <span>Volume 25</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_26.jpg" alt="Volume 26">
+                            <span>Volume 26</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_27.jpg" alt="Volume 27">
+                            <span>Volume 27</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_28.jpg" alt="Volume 28">
+                            <span>Volume 28</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_29.jpg" alt="Volume 29">
+                            <span>Volume 29</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_30.jpg" alt="Volume 30">
+                            <span>Volume 30</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_31.jpg" alt="Volume 31">
+                            <span>Volume 31</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_32.jpg" alt="Volume 32">
+                            <span>Volume 32</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_33.jpg" alt="Volume 33">
+                            <span>Volume 33</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_34.jpg" alt="Volume 34">
+                            <span>Volume 34</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_35.jpg" alt="Volume 35">
+                            <span>Volume 35</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_36.jpg" alt="Volume 36">
+                            <span>Volume 36</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_37.jpg" alt="Volume 37">
+                            <span>Volume 37</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_38.jpg" alt="Volume 38">
+                            <span>Volume 38</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_39.jpg" alt="Volume 39">
+                            <span>Volume 39</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_40.jpg" alt="Volume 40">
+                            <span>Volume 40</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_41.jpg" alt="Volume 41">
+                            <span>Volume 41</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_42.jpg" alt="Volume 42">
+                            <span>Volume 42</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_43.jpg" alt="Volume 43">
+                            <span>Volume 43</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_44.jpg" alt="Volume 44">
+                            <span>Volume 44</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_45.jpg" alt="Volume 45">
+                            <span>Volume 45</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_46.jpg" alt="Volume 46">
+                            <span>Volume 46</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_47.jpg" alt="Volume 47">
+                            <span>Volume 47</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_48.jpg" alt="Volume 48">
+                            <span>Volume 48</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_49.jpg" alt="Volume 49">
+                            <span>Volume 49</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_50.jpg" alt="Volume 50">
+                            <span>Volume 50</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_51.jpg" alt="Volume 51">
+                            <span>Volume 51</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_52.jpg" alt="Volume 52">
+                            <span>Volume 52</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_53.jpg" alt="Volume 53">
+                            <span>Volume 53</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_54.jpg" alt="Volume 54">
+                            <span>Volume 54</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_55.jpg" alt="Volume 55">
+                            <span>Volume 55</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_56.jpg" alt="Volume 56">
+                            <span>Volume 56</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_57.jpg" alt="Volume 57">
+                            <span>Volume 57</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_58.jpg" alt="Volume 58">
+                            <span>Volume 58</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_59.jpg" alt="Volume 59">
+                            <span>Volume 59</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_60.jpg" alt="Volume 60">
+                            <span>Volume 60</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_61.jpg" alt="Volume 61">
+                            <span>Volume 61</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_62.jpg" alt="Volume 62">
+                            <span>Volume 62</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_63.jpg" alt="Volume 63">
+                            <span>Volume 63</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_64.jpg" alt="Volume 64">
+                            <span>Volume 64</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_65.jpg" alt="Volume 65">
+                            <span>Volume 65</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_66.jpg" alt="Volume 66">
+                            <span>Volume 66</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_67.jpg" alt="Volume 67">
+                            <span>Volume 67</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_68.jpg" alt="Volume 68">
+                            <span>Volume 68</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_69.jpg" alt="Volume 69">
+                            <span>Volume 69</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_70.jpg" alt="Volume 70">
+                            <span>Volume 70</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_71.jpg" alt="Volume 71">
+                            <span>Volume 71</span>
+                        </div>
+                        <div class="volume-item">
+                            <img src="Capas/volume_72.jpg" alt="Volume 72">
+                            <span>Volume 72</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
-        <main class="content-body">
-            <h1>Volumes</h1>
-            <p>Esta página ainda não tem conteúdo.</p>
-        </main>
     </div>
 </body>
 </html>

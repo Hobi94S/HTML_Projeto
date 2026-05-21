@@ -4,34 +4,249 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmes - NarutoProject</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; color: #eee; background: #000000 url("Background2.png") no-repeat center center fixed; background-size: cover; }
-        a { text-decoration: none; color: #ff9d00; }
-        .container { max-width: 1500px; margin: 0 auto; background-color: rgba(73, 73, 73, 0.9); }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: url("Banner.png") no-repeat center center; background-size: cover; border-bottom: 3px solid #ff9d00; }
-        .logo img { max-height: 100px; width: auto; }
-        .status { text-align: right; font-size: 12px; }
-        .button-return { display: inline-block; background: #ff9d00; color: #000; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: bold; margin-left: 20px; text-decoration: none; }
-        .button-return:hover { background: #ffd07f; }
-        .content-body { padding: 40px; text-align: center; }
+        body { 
+            font-family: Verdana, Arial, sans-serif; 
+            margin: 0; 
+            background: #000 url("Background2.png") fixed center top; 
+            background-size: cover;
+            color: #333; 
+        }
+        .container { 
+            width: 1450px; 
+            margin: 0 auto; 
+            background-color: #fff; 
+            border: 1px solid #333; 
+        }
+        header { 
+            background: url("Banner.png") no-repeat center center; 
+            background-size: cover; 
+            height: 150px; 
+            position: relative; 
+            border-bottom: 5px solid #ff8c00;
+        }
+        .logo { padding: 20px; }
+        .logo img { max-height: 100px; }
+        .status-box { 
+            position: absolute; 
+            bottom: 10px; 
+            right: 10px; 
+            background: rgba(0,0,0,0.7); 
+            color: #fff; 
+            padding: 5px 10px; 
+            font-size: 11px; 
+            border: 1px solid #555;
+        }
+        .layout-wrapper { display: flex; }
+        aside { 
+            width: 200px; 
+            background-color: #f0f0f0; 
+            border-right: 1px solid #ccc; 
+            min-height: 600px;
+        }
+        .menu-block { margin-bottom: 15px; }
+        .menu-title { 
+            background: linear-gradient(to bottom, #f9f9f9, #d5d5d5); 
+            padding: 5px 10px; 
+            font-size: 12px; 
+            font-weight: bold; 
+            color: #555; 
+            border-top: 1px solid #fff; 
+            border-bottom: 1px solid #aaa; 
+            text-transform: uppercase;
+        }
+        .menu-list { list-style: none; padding: 0; margin: 0; }
+        .menu-list li { border-bottom: 1px solid #ddd; }
+        .menu-list li a { 
+            display: block; 
+            padding: 6px 10px 6px 20px; 
+            font-size: 11px; 
+            color: #333; 
+            text-decoration: none; 
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="2" fill="%23888"/></svg>') no-repeat 8px center; 
+        }
+        .menu-list li a:hover { background-color: #fff; color: #ff8c00; }
+        
+        main { 
+            flex: 1; 
+            padding: 15px; 
+            background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><rect width="2" height="2" fill="%23f9f9f9"/></svg>'); 
+        }
+        .content-box { 
+            background-color: #ff9933; 
+            border: 1px solid #d35400; 
+            padding: 15px; 
+            min-height: 400px;
+        }
+        .content-box h1 { 
+            font-family: Impact, sans-serif; 
+            font-size: 28px; 
+            color: #fff; 
+            margin-top: 0; 
+            text-shadow: 2px 2px 0px #d35400; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px dashed #fff;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        .content-box h2 {
+            font-size: 16px;
+            color: #b30000;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #b30000;
+            padding-bottom: 3px;
+        }
+        .content-box p { font-size: 12px; line-height: 1.6; color: #000; margin-bottom: 15px; }
+        
+        .item-section { 
+            border-bottom: 1px dashed #d35400; 
+            padding-bottom: 15px; 
+            margin-bottom: 15px; 
+        }
+        .item-section h3 { font-size: 13px; color: #fff; margin: 0 0 8px 0; font-family: Verdana, sans-serif; font-weight: bold; text-shadow: 1px 1px 0px #d35400; }
+        
+        .poster-placeholder {
+            width: 110px;
+            height: 155px;
+            background-color: #ffcc80;
+            border: 2px dashed #d35400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #b30000;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .poster-placeholder.image-left { float: left; margin: 0 15px 10px 0; }
+        .poster-placeholder.image-right { float: right; margin: 0 0 10px 15px; }
+        
+        .clear { clear: both; }
+        .image-right { float: right; margin: 0 0 10px 15px; border: 2px solid #d35400; }
+        .image-left { float: left; margin: 0 15px 10px 0; border: 2px solid #d35400; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <div class="logo">
-                <img src="logo.png" alt="Naruto Project logo">
+                <a href="NarutoProject.html"><img src="logo.png" alt="Naruto Project logo"></a>
             </div>
-            <div class="status">
-                <p>Online: 248</p>
-                <p>Visitantes: 1.024</p>
+            <div class="status-box">
+                Online: 248 | Visitantes: 1.024
             </div>
-            <a class="button-return" href="NarutoProject.html">Voltar à página principal</a>
+        </header>
+        <div class="layout-wrapper">
+            <aside>
+                <div class="menu-block">
+                    <div class="menu-title">» narutoPROJECT</div>
+                    <ul class="menu-list">
+                        <li><a href="Sobre.html">Sobre</a></li>
+                        <li><a href="Equipe.html">Equipe</a></li>
+                    </ul>
+                </div>
+                <div class="menu-block">
+                    <div class="menu-title">» Curiosidades</div>
+                    <ul class="menu-list">
+                        <li><a href="Hokages.html">Hokages</a></li>
+                        <li><a href="Openings.html">Openings</a></li>
+                        <li><a href="Filmes.html">Filmes</a></li>
+                        <li><a href="Volumes.html">Volumes</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main>
+                <div class="content-box">
+                    <h1>Filmes</h1>
+                    
+                    <h2>Naruto Clássico (3 Filmes)</h2>
+                    
+                    <div class="item-section">
+                        <h3>Naruto o Filme: Confronto Ninja no País da Neve (2004)</h3>
+                        <img src="Filmes/1.jpg" alt="Confronto Ninja no País da Neve" class="image-left" style="width: 110px; height: auto;">
+                        <p>Naruto, Sasuke e Sakura são escalados para proteger Yukie Fujikaze, uma famosa atriz de cinema, durante as filmagens de seu novo longa no País da Neve. O que eles não sabem é que Yukie é, na verdade, a princesa herdeira daquela terra e está fugindo de seu tio tirano, Dotou Kazahana, que deseja um tesouro escondido no palácio. O Time 7 precisa ajudá-la a enfrentar ninjas que utilizam armaduras especiais de chakra para libertar o seu povo.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>Naruto o Filme: Grandes Colisões! As Ilusões das Ruínas Subterrâneas (2005)</h3>
+                        <img src="Filmes/2.jpg" alt="As Ilusões das Ruínas Subterrâneas" class="image-right" style="width: 110px; height: auto;">
+                        <p>Durante uma missão para resgatar um furão de estimação perdido, Naruto, Shikamaru e Sakura são atacados por cavaleiros misteriosos trajando armaduras ocidentais. Naruto acaba se separando do grupo e conhece Temujin, um jovem guerreiro que serve a um lorde utópico. O conflito gira em torno do controle da Pedra de Gelel, um mineral lendário que possui um poder destrutivo imenso escondido em ruínas subterrâneas.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>Naruto o Filme: A Revolta dos Animais da Ilha da Lua Crescente (2006)</h3>
+                        <img src="Filmes/3.jpg" alt="A Revolta dos Animais da Ilha da Lua Crescente" class="image-left" style="width: 110px; height: auto;">
+                        <p>O Time 7, acompanhado de Rock Lee, recebe a missão de escoltar Michiru, o príncipe mimado do País da Lua, e seu filho Hikaru de volta para casa. Durante a viagem, o príncipe compra um circo inteiro repleto de animais raros, o que dificulta o trajeto. Ao chegarem à ilha da Lua Crescente, eles descobrem que um golpe de estado liderado por ministros corruptos e ninjas mercenários tomou o reino, forçando Naruto e seus amigos a lutarem para restaurar o trono.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <h2>Naruto Shippuden (8 Filmes)</h2>
+                    
+                    <div class="item-section">
+                        <h3>Naruto Shippuden o Filme (2007)</h3>
+                        <img src="Filmes/4.jpg" alt="Naruto Shippuden o Filme" class="image-right" style="width: 110px; height: auto;">
+                        <p>Um espírito maligno chamado Moryo ameaça destruir o mundo desperdiçando seu exército de soldados de pedra. A única pessoa capaz de selá-lo novamente é Shion, uma jovem sacerdotisa do País dos Demônios. Naruto e seu time são enviados para protegê-la em sua jornada. No caminho, Shion, que possui a habilidade de prever a morte de quem a cerca, profetiza que Naruto morrerá de forma trágica ao tentar protegê-la.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>Naruto Shippuden o Filme: Vínculos (2008)</h3>
+                        <img src="Filmes/5.jpg" alt="Naruto Shippuden o Filme: Vínculos" class="image-left" style="width: 110px; height: auto;">
+                        <p>A Vila da Folha sofre um ataque devastador de surpresa vindo dos Céus, orquestrado pelos ninjas do País do Céu, uma antiga nação rival. Durante o caos, Naruto conhece um médico itinerante chamado Shinnou e sua discípula Amaru. A missão os leva a uma fortaleza voadora misteriosa, onde as circunstâncias forçam Naruto a unir forças temporariamente com Sasuke Uchiha, que havia deixado a vila para seguir seus próprios objetivos com Orochimaru.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>Naruto Shippuden o Filme: Herdeiros da Vontade do Fogo (2009)</h3>
+                        <img src="Filmes/6.jpg" alt="Herdeiros da Vontade do Fogo" class="image-right" style="width: 110px; height: auto;">
+                        <p>Ninjas portadores de Kekkei Genkai começam a desaparecer misteriosamente das quatro Grandes Nações Ninja, levantando suspeitas de traição contra a Vila da Folha. Para evitar uma guerra mundial iminente, Kakashi Hatake decide se sacrificar voluntariamente como parte de um plano selado no passado. Recusando-se a aceitar a morte de seu mestre, Naruto quebra as ordens diretas da vila e lidera seus amigos em uma missão de resgate.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>Naruto Shippuden o Filme: A Torre Perdida (2010)</h3>
+                        <img src="Filmes/7.jpg" alt="A Torre Perdida" class="image-left" style="width: 110px; height: auto;">
+                        <p>Ao perseguir Mukade, um ninja renegado que busca absorver o fluxo infinito de chakra das Ruínas de Ouran, Naruto é pego por uma explosão de energia temporal. Ele acorda duas décadas no passado na luxuosa e vertical cidade de Loran. Lá, ele une forças com a rainha local, Sara, e descobre uma aliança inesperada com uma equipe de elite de Konoha enviada no passado, liderada por ninguém menos que Minato Namikaze.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>Naruto o Filme: Prisão de Sangue (2011)</h3>
+                        <img src="Filmes/8.jpg" alt="Prisão de Sangue" class="image-right" style="width: 110px; height: auto;">
+                        <p>Naruto é injustamente acusado de tentar assassinar o Raikage e de matar ninjas de outras vilas. Como punição, ele é enviado para o Castelo Hozuki, uma prisão de segurança máxima conhecida como Prisão de Sangue. Lá, o diretor Mui sela os poderes de Naruto usando um jutsu de aprisionamento de chakra. Isolado e sem seus poderes habituais, Naruto precisa provar sua inocência enquanto descobre uma conspiração que envolve uma caixa capaz de realizar desejos.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>Road to Ninja: Naruto o Filme (2012)</h3>
+                        <img src="Filmes/9.jpg" alt="Road to Ninja" class="image-left" style="width: 110px; height: auto;">
+                        <p>Tobi usa uma versão de teste do Tsukuyomi Infinito e envia Naruto e Sakura para uma realidade alternativa bizarra. Nesse mundo espelhado, os pais de Naruto, Minato e Kushina, estão vivos e são os heróis locais, enquanto os pais de Sakura foram os que se sacrificaram no passado. Além disso, as personalidades de seus amigos de Konoha estão completamente invertidas. Naruto se vê dividido entre viver a ilusão da família que nunca teve ou lutar para voltar à realidade.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section">
+                        <h3>The Last: Naruto o Filme (2014)</h3>
+                        <img src="Filmes/10.jpg" alt="The Last" class="image-right" style="width: 110px; height: auto;">
+                        <p>Dois anos após os eventos da Quarta Guerra Mundial Shinobi, Toneri Otsutsuki, um descendente de Hamura, ressurge com o plano de colidir a Lua contra a Terra para punir a humanidade por usar o chakra como arma. Ele sequestra Hanabi Hyuga para roupar o Byakugan e tenta forçar Hinata a se casar com ele. Naruto lidera uma equipe de resgate ao espaço profundo, enfrentando a maior ameaça del planeta enquanto finalmente compreende seus sentimentos românticos por Hinata.</p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="item-section" style="border-bottom: none; margin-bottom: 0;">
+                        <h3>Boruto: Naruto o Filme (2015)</h3>
+                        <img src="Filmes/11.jpg" alt="Boruto" class="image-left" style="width: 110px; height: auto;">
+                        <p>Naruto agora governa a Vila da Folha como o Sétimo Hokage, mas sua dedicação ao trabalho o afasta de sua família. Seu filho mais velho, Boruto Uzumaki, ressente a ausência do pai e decide treinar sob a tutela de Sasuke Uchiha para superá-lo. Durante o Exame Chunin, em uma Konoha moderna e altamente tecnológica, a avaliação é interrompida pelo ataque brutal de Kinshiki e Momoshiki Otsutsuki, forçando pais e filhos a unirem forças.</p>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </main>
         </div>
-        <main class="content-body">
-            <h1>Filmes</h1>
-            <p>Esta página ainda não tem conteúdo.</p>
-        </main>
     </div>
 </body>
 </html>

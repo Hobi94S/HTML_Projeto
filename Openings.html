@@ -4,232 +4,313 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Openings - NarutoProject</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; color: #eee; background: #000000 url("Background2.png") no-repeat center center fixed; background-size: cover; }
-        a { text-decoration: none; color: #ff9d00; }
-        .container { max-width: 1500px; margin: 0 auto; background-color: rgba(73, 73, 73, 0.9); }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: url("Banner.png") no-repeat center center; background-size: cover; border-bottom: 3px solid #ff9d00; }
-        .logo img { max-height: 100px; width: auto; }
-        .status { text-align: right; font-size: 12px; }
-        .button-return { display: inline-block; background: #ff9d00; color: #000; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: bold; margin-left: 20px; text-decoration: none; }
-        .button-return:hover { background: #ffd07f; }
-        .content-body { padding: 40px; text-align: center; }
+        body { 
+            font-family: Verdana, Arial, sans-serif; 
+            margin: 0; 
+            background: #000 url("Background2.png") fixed center top; 
+            background-size: cover;
+            color: #333; 
+        }
+        .container { 
+            width: 1450px; 
+            margin: 0 auto; 
+            background-color: #fff; 
+            border: 1px solid #333; 
+        }
+        header { 
+            background: url("Banner.png") no-repeat center center; 
+            background-size: cover; 
+            height: 150px; 
+            position: relative; 
+            border-bottom: 5px solid #ff8c00;
+        }
+        .logo { padding: 20px; }
+        .logo img { max-height: 100px; }
+        .status-box { 
+            position: absolute; 
+            bottom: 10px; 
+            right: 10px; 
+            background: rgba(0,0,0,0.7); 
+            color: #fff; 
+            padding: 5px 10px; 
+            font-size: 11px; 
+            border: 1px solid #555;
+        }
+        .layout-wrapper { display: flex; }
+        aside { 
+            width: 200px; 
+            background-color: #f0f0f0; 
+            border-right: 1px solid #ccc; 
+            min-height: 600px;
+        }
+        .menu-block { margin-bottom: 15px; }
+        .menu-title { 
+            background: linear-gradient(to bottom, #f9f9f9, #d5d5d5); 
+            padding: 5px 10px; 
+            font-size: 12px; 
+            font-weight: bold; 
+            color: #555; 
+            border-top: 1px solid #fff; 
+            border-bottom: 1px solid #aaa; 
+            text-transform: uppercase;
+        }
+        .menu-list { list-style: none; padding: 0; margin: 0; }
+        .menu-list li { border-bottom: 1px solid #ddd; }
+        .menu-list li a { 
+            display: block; 
+            padding: 6px 10px 6px 20px; 
+            font-size: 11px; 
+            color: #333; 
+            text-decoration: none; 
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="2" fill="%23888"/></svg>') no-repeat 8px center; 
+        }
+        .menu-list li a:hover { background-color: #fff; color: #ff8c00; }
+        
+        main { 
+            flex: 1; 
+            padding: 15px; 
+            background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><rect width="2" height="2" fill="%23f9f9f9"/></svg>'); 
+        }
+        .content-box { 
+            background-color: #ff9933; 
+            border: 1px solid #d35400; 
+            padding: 15px; 
+            min-height: 400px;
+        }
+        .content-box h1 { 
+            font-family: Impact, sans-serif; 
+            font-size: 28px; 
+            color: #fff; 
+            margin-top: 0; 
+            text-shadow: 2px 2px 0px #d35400; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px dashed #fff;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        .content-box h2 {
+            font-size: 16px;
+            color: #b30000;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #b30000;
+        }
+        
+        .retro-table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 12px; }
+        .retro-table th { background-color: #d35400; color: #fff; padding: 6px; text-align: left; border: 1px solid #a04000; }
+        .retro-table td { background-color: #ffb84d; padding: 6px; border: 1px solid #d35400; color: #000; }
+        .retro-table tr:nth-child(even) td { background-color: #ffa31a; }
+        .retro-table a { color: #000; text-decoration: none; font-weight: bold; }
+        .retro-table a:hover { text-decoration: underline; color: #fff; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <div class="logo">
-                <img src="logo.png" alt="Naruto Project logo">
+                <a href="NarutoProject.html"><img src="logo.png" alt="Naruto Project logo"></a>
             </div>
-            <div class="status">
-                <p>Online: 248</p>
-                <p>Visitantes: 1.024</p>
+            <div class="status-box">
+                Online: 248 | Visitantes: 1.024
             </div>
-            <a class="button-return" href="NarutoProject.html">Voltar à página principal</a>
+        </header>
+        <div class="layout-wrapper">
+            <aside>
+                <div class="menu-block">
+                    <div class="menu-title">» narutoPROJECT</div>
+                    <ul class="menu-list">
+                        <li><a href="Sobre.html">Sobre</a></li>
+                        <li><a href="Equipe.html">Equipe</a></li>
+                    </ul>
+                </div>
+                <div class="menu-block">
+                    <div class="menu-title">» Curiosidades</div>
+                    <ul class="menu-list">
+                        <li><a href="Hokages.html">Hokages</a></li>
+                        <li><a href="Openings.html">Openings</a></li>
+                        <li><a href="Filmes.html">Filmes</a></li>
+                        <li><a href="Volumes.html">Volumes</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main>
+                <div class="content-box">
+                    <h1>Openings</h1>
+                    <table class="retro-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px;">#</th>
+                                <th>Título</th>
+                                <th>Artista</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><a href="https://youtu.be/q1aq9GEHR8Q" target="_blank" rel="noopener noreferrer">R★O★C★K★S</a></td>
+                                <td>Hound Dog</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a href="https://youtu.be/e4Sk59QwYyE" target="_blank" rel="noopener noreferrer">Far Away</a></td>
+                                <td>Asian Kung-Fu Generation</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a href="https://youtu.be/9TOWvpAhu4g" target="_blank" rel="noopener noreferrer">Turning Sadness Into Kindness</a></td>
+                                <td>little by little</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a href="https://youtu.be/GBE1VkrL8b0" target="_blank" rel="noopener noreferrer">GO!!!</a></td>
+                                <td>FLOW</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="https://youtu.be/MkN--nO5G1g" target="_blank" rel="noopener noreferrer">Rhapsody of Youth</a></td>
+                                <td>Sambomaster</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><a href="https://youtu.be/gO2z86PoQRY" target="_blank" rel="noopener noreferrer">No Boy, No Cry</a></td>
+                                <td>Stance Punks</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><a href="https://youtu.be/GU5aRZdqcC8" target="_blank" rel="noopener noreferrer">Wind and Waves Satellite</a></td>
+                                <td>Snowkel</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><a href="https://youtu.be/FvTjwbKsO9g" target="_blank" rel="noopener noreferrer">Re:member</a></td>
+                                <td>FLOW</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><a href="https://youtu.be/QFgNsLrlds0" target="_blank" rel="noopener noreferrer">Swaying</a></td>
+                                <td>Hearts Grow</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2>Naruto Shippuden</h2>
+                    <table class="retro-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px;">#</th>
+                                <th>Título</th>
+                                <th>Artista</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><a href="https://www.youtube.com/watch?v=EBNl8bwdVcA" target="_blank" rel="noopener noreferrer">Hero's Come Back!!</a></td>
+                                <td>nobodyknows+</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a href="https://www.youtube.com/watch?v=r6EPMvIhtyA" target="_blank" rel="noopener noreferrer">Distance</a></td>
+                                <td>LONG SHOT PARTY</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a href="https://www.youtube.com/watch?v=2upuBiEiXDk" target="_blank" rel="noopener noreferrer">Blue Bird</a></td>
+                                <td>Ikimono-Gakari</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a href="https://www.youtube.com/watch?v=BTLFZ2DCjn0" target="_blank" rel="noopener noreferrer">Closer</a></td>
+                                <td>Joe Inoue</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="https://www.youtube.com/watch?v=miFqf3Zedpw" target="_blank" rel="noopener noreferrer">Light of a Firefly</a></td>
+                                <td>Ikimono-Gakari</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><a href="https://www.youtube.com/watch?v=97dkzVU4p-M" target="_blank" rel="noopener noreferrer">Sign</a></td>
+                                <td>FLOW</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><a href="https://www.youtube.com/watch?v=06EjEq_7RJY" target="_blank" rel="noopener noreferrer">A World That Was Transparent</a></td>
+                                <td>Hata Motohiro</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><a href="https://www.youtube.com/watch?v=P1yJ51DH-18" target="_blank" rel="noopener noreferrer">Diver</a></td>
+                                <td>NICO Touches the Walls</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><a href="https://www.youtube.com/watch?v=Oim_0n0nSWM" target="_blank" rel="noopener noreferrer">Lovers</a></td>
+                                <td>7!! Seven Oops</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><a href="https://www.youtube.com/watch?v=VijSxQ27-mw" target="_blank" rel="noopener noreferrer">Newsong</a></td>
+                                <td>tacica</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><a href="https://www.youtube.com/watch?v=VO-df6nkLhc" target="_blank" rel="noopener noreferrer">Assault Rock</a></td>
+                                <td>THE CRO-MAGNONS</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><a href="https://www.youtube.com/watch?v=ta48lV6pnok" target="_blank" rel="noopener noreferrer">If</a></td>
+                                <td>Daisuke</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td><a href="https://www.youtube.com/watch?v=BylkQHFemTw" target="_blank" rel="noopener noreferrer">Not Even Sudden Rain Can Defeat Me</a></td>
+                                <td>NICO Touches the Walls</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td><a href="https://www.youtube.com/watch?v=YxR3D_a7jUU" target="_blank" rel="noopener noreferrer">Size of the Moon</a></td>
+                                <td>Nogizaka46</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td><a href="https://www.youtube.com/watch?v=a5l2OF1byrE" target="_blank" rel="noopener noreferrer">Crimson Lotus</a></td>
+                                <td>DOES</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td><a href="https://www.youtube.com/watch?v=zVgKnfN9i34" target="_blank" rel="noopener noreferrer">Silhouette</a></td>
+                                <td>KANA-BOON</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td><a href="https://www.youtube.com/watch?v=PZ5jBl3yJ0s" target="_blank" rel="noopener noreferrer">Wind</a></td>
+                                <td>Yamazaru</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td><a href="https://www.youtube.com/watch?v=X_tmHq4yhuY" target="_blank" rel="noopener noreferrer">Line</a></td>
+                                <td>Sukima Switch</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td><a href="https://www.youtube.com/watch?v=cxbnTMrU3H0" target="_blank" rel="noopener noreferrer">Blood Circulator</a></td>
+                                <td>Asian Kung-Fu Generation</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td><a href="https://www.youtube.com/watch?v=v8OhPW-Yb0k" target="_blank" rel="noopener noreferrer">Empty Heart</a></td>
+                                <td>Anly</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
         </div>
-        <main class="content-body">
-            <h1>Openings</h1>
-            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-                <thead>
-                    <tr>
-                        <th style="border: 1px solid #555; padding: 12px; background: rgba(255, 157, 0, 0.18); text-align: left; width: 40px;">#</th>
-                        <th style="border: 1px solid #555; padding: 12px; background: rgba(255, 157, 0, 0.18); text-align: left;">Título</th>
-                        <th style="border: 1px solid #555; padding: 12px; background: rgba(255, 157, 0, 0.18); text-align: left;">Artista</th>
-                        <th style="border: 1px solid #555; padding: 12px; background: rgba(255, 157, 0, 0.18); text-align: left; width: 120px;">Duração</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">1</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://youtu.be/q1aq9GEHR8Q" target="_blank" rel="noopener noreferrer">R★O★C★K★S</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Hound Dog</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:53</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">2</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://youtu.be/e4Sk59QwYyE" target="_blank" rel="noopener noreferrer">Far Away</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Asian Kung-Fu Generation</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:02</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">3</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://youtu.be/9TOWvpAhu4g" target="_blank" rel="noopener noreferrer">Turning Sadness Into Kindness</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">little by little</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:00</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">4</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://youtu.be/GBE1VkrL8b0" target="_blank" rel="noopener noreferrer">GO!!!</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">FLOW</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:56</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">5</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://youtu.be/MkN--nO5G1g" target="_blank" rel="noopener noreferrer">Rhapsody of Youth</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Sambomaster</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:46</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">6</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://youtu.be/gO2z86PoQRY" target="_blank" rel="noopener noreferrer">No Boy, No Cry</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Stance Punks</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:33</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">7</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://youtu.be/GU5aRZdqcC8" target="_blank" rel="noopener noreferrer">Wind and Waves Satellite</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Snowkel</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:07</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">8</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://youtu.be/FvTjwbKsO9g" target="_blank" rel="noopener noreferrer">Re:member</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">FLOW</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:20</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">9</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://youtu.be/QFgNsLrlds0" target="_blank" rel="noopener noreferrer">Swaying</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Hearts Grow</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:55</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2 style="margin-top: 40px;">Naruto Shippuden</h2>
-            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-                <thead>
-                    <tr>
-                        <th style="border: 1px solid #555; padding: 12px; background: rgba(255, 157, 0, 0.18); text-align: left; width: 40px;">#</th>
-                        <th style="border: 1px solid #555; padding: 12px; background: rgba(255, 157, 0, 0.18); text-align: left;">Título</th>
-                        <th style="border: 1px solid #555; padding: 12px; background: rgba(255, 157, 0, 0.18); text-align: left;">Artista</th>
-                        <th style="border: 1px solid #555; padding: 12px; background: rgba(255, 157, 0, 0.18); text-align: left; width: 120px;">Duração</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">1</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=EBNl8bwdVcA" target="_blank" rel="noopener noreferrer">Hero's Come Back!!</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">nobodyknows+</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:35</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">2</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=r6EPMvIhtyA" target="_blank" rel="noopener noreferrer">Distance</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">LONG SHOT PARTY</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:07</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">3</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=2upuBiEiXDk" target="_blank" rel="noopener noreferrer">Blue Bird</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Ikimono-Gakari</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:36</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">4</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=BTLFZ2DCjn0" target="_blank" rel="noopener noreferrer">Closer</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Joe Inoue</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:28</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">5</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=miFqf3Zedpw" target="_blank" rel="noopener noreferrer">Light of a Firefly</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Ikimono-Gakari</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:01</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">6</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=97dkzVU4p-M" target="_blank" rel="noopener noreferrer">Sign</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">FLOW</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:58</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">7</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=06EjEq_7RJY" target="_blank" rel="noopener noreferrer">A World That Was Transparent</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Hata Motohiro</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:56</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">8</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=P1yJ51DH-18" target="_blank" rel="noopener noreferrer">Diver</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">NICO Touches the Walls</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:10</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">9</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=Oim_0n0nSWM" target="_blank" rel="noopener noreferrer">Lovers</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">7!! Seven Oops</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:49</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">10</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=VijSxQ27-mw" target="_blank" rel="noopener noreferrer">Newsong</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">tacica</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:31</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">11</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=VO-df6nkLhc" target="_blank" rel="noopener noreferrer">Assault Rock</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">THE CRO-MAGNONS</td>
-                        <td style="border: 1px solid #555; padding: 12px;">2:26</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">12</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=ta48lV6pnok" target="_blank" rel="noopener noreferrer">If</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Daisuke</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:57</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">13</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=BylkQHFemTw" target="_blank" rel="noopener noreferrer">Not Even Sudden Rain Can Defeat Me</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">NICO Touches the Walls</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:22</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">14</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=YxR3D_a7jUU" target="_blank" rel="noopener noreferrer">Size of the Moon</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Nogizaka46</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:56</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">15</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=a5l2OF1byrE" target="_blank" rel="noopener noreferrer">Crimson Lotus</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">DOES</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:04</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">16</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=zVgKnfN9i34" target="_blank" rel="noopener noreferrer">Silhouette</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">KANA-BOON</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:01</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">17</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=PZ5jBl3yJ0s" target="_blank" rel="noopener noreferrer">Wind</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Yamazaru</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:09</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">18</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=X_tmHq4yhuY" target="_blank" rel="noopener noreferrer">Line</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Sukima Switch</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:43</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">19</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=cxbnTMrU3H0" target="_blank" rel="noopener noreferrer">Blood Circulator</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Asian Kung-Fu Generation</td>
-                        <td style="border: 1px solid #555; padding: 12px;">3:43</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #555; padding: 12px;">20</td>
-                        <td style="border: 1px solid #555; padding: 12px;"><a href="https://www.youtube.com/watch?v=v8OhPW-Yb0k" target="_blank" rel="noopener noreferrer">Empty Heart</a></td>
-                        <td style="border: 1px solid #555; padding: 12px;">Anly</td>
-                        <td style="border: 1px solid #555; padding: 12px;">4:25</td>
-                    </tr>
-                </tbody>
-            </table>
-        </main>
     </div>
 </body>
 </html>
