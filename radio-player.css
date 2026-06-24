@@ -1,0 +1,281 @@
+body {
+    cursor: url("Mouse/normal%20select.cur"), default;
+}
+
+a,
+button,
+input[type="range"],
+summary,
+[role="button"] {
+    cursor: url("Mouse/link%20select.cur"), pointer;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    cursor: url("Mouse/handwriting.cur"), text;
+}
+
+[disabled],
+.is-disabled,
+[aria-disabled="true"] {
+    cursor: url("Mouse/unavailable.cur"), not-allowed;
+}
+
+.retro-radio {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 320px;
+    z-index: 9999;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    color: #2b1100;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.28);
+}
+
+.retro-radio__window {
+    border: 2px solid #8b8b8b;
+    background: #f4ede3;
+    box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #a4a4a4;
+}
+
+.retro-radio__titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 6px;
+    background: linear-gradient(180deg, #ffe9d4 0%, #ff9f43 45%, #db5d00 100%);
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+    border-bottom: 2px solid #963700;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+}
+
+.retro-radio__title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.retro-radio__title span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.retro-radio__brand-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #c80000;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 0 1px rgba(91, 14, 0, 0.4);
+    flex: 0 0 auto;
+}
+
+.retro-radio__window-buttons {
+    display: flex;
+    gap: 4px;
+}
+
+.retro-radio__window-buttons button,
+.retro-radio__control,
+.retro-radio__track,
+.retro-radio__volume input,
+.retro-radio__playlist::-webkit-scrollbar-thumb {
+    cursor: pointer;
+}
+
+.retro-radio__window-buttons button {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #914100;
+    background: linear-gradient(180deg, #fff7f0 0%, #ffc081 100%);
+    color: #7c2200;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 0;
+    line-height: 1;
+}
+
+.retro-radio__body {
+    padding: 10px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5)),
+        repeating-linear-gradient(0deg, #f6f1ea 0 2px, #efe5db 2px 4px);
+}
+
+.retro-radio--collapsed .retro-radio__body {
+    display: none;
+}
+
+.retro-radio__screen {
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 9px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.retro-radio__visualizer {
+    height: 56px;
+    border: 2px inset #fff;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.1)),
+        repeating-linear-gradient(90deg, #ffcccb 0 5px, #ff4d4d 5px 10px, #cf1616 10px 11px);
+    position: relative;
+    overflow: hidden;
+}
+
+.retro-radio__visualizer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.65), rgba(255,255,255,0) 35%, rgba(255,255,255,0.3) 65%, rgba(255,255,255,0));
+    animation: radioScan 2.8s linear infinite;
+}
+
+.retro-radio__meta {
+    min-width: 0;
+}
+
+.retro-radio__now {
+    font-size: 10px;
+    font-weight: bold;
+    color: #a62400;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.retro-radio__song {
+    border: 2px inset #fff;
+    background: #fffaf4;
+    padding: 7px 8px;
+    font-size: 12px;
+    line-height: 1.25;
+    min-height: 33px;
+    display: flex;
+    align-items: center;
+}
+
+.retro-radio__controls {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.retro-radio__control {
+    border: 1px solid #9f4000;
+    background: linear-gradient(180deg, #fff 0%, #ffc98f 55%, #ff7a00 100%);
+    color: #5c1b00;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 6px 0;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85);
+}
+
+.retro-radio__control:hover,
+.retro-radio__window-buttons button:hover,
+.retro-radio__track:hover {
+    filter: brightness(1.05);
+}
+
+.retro-radio__control:active,
+.retro-radio__window-buttons button:active,
+.retro-radio__track:active {
+    transform: translateY(1px);
+}
+
+.retro-radio__playlist-label,
+.retro-radio__footer {
+    font-size: 10px;
+    font-weight: bold;
+    color: #9e2d00;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+.retro-radio__playlist {
+    max-height: 145px;
+    overflow-y: auto;
+    padding-right: 2px;
+    margin: 6px 0 10px;
+}
+
+.retro-radio__playlist::-webkit-scrollbar {
+    width: 10px;
+}
+
+.retro-radio__playlist::-webkit-scrollbar-track {
+    background: #f2d7bf;
+    border-left: 1px solid #ca7b34;
+}
+
+.retro-radio__playlist::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff6e54, #c11b17);
+    border: 1px solid #8e1d00;
+}
+
+.retro-radio__track {
+    width: 100%;
+    text-align: left;
+    border: 1px solid #cf934f;
+    background: #fff8f0;
+    padding: 5px 7px;
+    font-size: 11px;
+    color: #341300;
+    margin-bottom: 4px;
+}
+
+.retro-radio__track.is-active {
+    background: linear-gradient(180deg, #ffca92, #ff8b1f);
+    border-color: #a83d00;
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(96, 18, 0, 0.45);
+}
+
+.retro-radio__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.retro-radio__volume {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.retro-radio__volume input {
+    flex: 1;
+    accent-color: #d53d00;
+}
+
+.retro-radio__status {
+    min-width: 54px;
+    text-align: right;
+}
+
+@keyframes radioScan {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .retro-radio {
+        right: 10px;
+        bottom: 10px;
+        width: min(320px, calc(100vw - 20px));
+    }
+}

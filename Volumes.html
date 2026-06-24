@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volumes - NarutoProject</title>
     <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="radio-player.css">
     <style>
         body { 
             font-family: Verdana, Arial, sans-serif; 
@@ -101,6 +102,36 @@
         
         .volume-item {
             text-align: center;
+            position: relative;
+            padding: 6px;
+            border: 1px solid transparent;
+            background: linear-gradient(to bottom, rgba(255, 219, 153, 0.18), rgba(255, 140, 0, 0.08));
+            transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+            overflow: hidden;
+        }
+
+        .volume-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -65%;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));
+            transform: skewX(-18deg);
+            opacity: 0;
+            transition: left 0.35s ease, opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        .volume-item::after {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border: 1px dotted rgba(255, 245, 220, 0.75);
+            opacity: 0;
+            transition: opacity 0.22s ease;
+            pointer-events: none;
         }
         
         .volume-item img {
@@ -109,6 +140,8 @@
             border: 2px solid #d35400;
             display: block;
             margin-bottom: 5px;
+            box-shadow: 3px 3px 0 rgba(122, 41, 0, 0.28);
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
         }
         
         .volume-item span {
@@ -116,6 +149,35 @@
             font-weight: bold;
             color: #000;
             display: block;
+            transition: color 0.22s ease, text-shadow 0.22s ease;
+        }
+
+        .volume-item:hover {
+            transform: translateY(-4px);
+            border-color: #ffd38a;
+            background: linear-gradient(to bottom, rgba(255, 240, 198, 0.45), rgba(255, 153, 51, 0.22));
+            box-shadow: 0 0 0 1px #d35400, 5px 5px 0 rgba(122, 41, 0, 0.22);
+        }
+
+        .volume-item:hover::before {
+            left: 120%;
+            opacity: 1;
+        }
+
+        .volume-item:hover::after {
+            opacity: 1;
+        }
+
+        .volume-item:hover img {
+            transform: scale(1.03);
+            border-color: #fff0cf;
+            box-shadow: 0 0 10px rgba(255, 226, 171, 0.8), 4px 4px 0 rgba(122, 41, 0, 0.34);
+            filter: saturate(1.08) contrast(1.04);
+        }
+
+        .volume-item:hover span {
+            color: #7c1c00;
+            text-shadow: 1px 1px 0 rgba(255, 245, 220, 0.8);
         }
     </style>
 </head>
@@ -135,6 +197,7 @@
                     <div class="menu-title">» narutoPROJECT</div>
                     <ul class="menu-list">
                         <li><a href="Sobre.html">Sobre</a></li>
+                        <li><a href="SobreII.html">Sobre II</a></li>
                         <li><a href="Equipe.html">Equipe</a></li>
                     </ul>
                 </div>
@@ -446,5 +509,6 @@
             </main>
         </div>
     </div>
+    <script src="radio-player.js"></script>
 </body>
 </html>
