@@ -108,6 +108,7 @@
             background: linear-gradient(to bottom, rgba(255, 219, 153, 0.18), rgba(255, 140, 0, 0.08));
             transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .volume-item::before {
@@ -178,6 +179,202 @@
         .volume-item:hover span {
             color: #7c1c00;
             text-shadow: 1px 1px 0 rgba(255, 245, 220, 0.8);
+        }
+
+        .volume-item:focus-visible {
+            outline: 2px dashed #fff7d1;
+            outline-offset: 3px;
+            border-color: #fff0cf;
+        }
+
+        .manga-preview-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            background: rgba(18, 7, 0, 0.28);
+            backdrop-filter: blur(12px);
+        }
+
+        .manga-preview-overlay.is-open {
+            display: flex;
+        }
+
+        .manga-preview-panel {
+            width: min(1000px, calc(100vw - 50px));
+            max-height: calc(100vh - 50px);
+            overflow: visible;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+            color: #fff7ea;
+        }
+
+        .manga-preview-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 0 12px;
+            background: transparent;
+            border-bottom: 0;
+        }
+
+        .manga-preview-close {
+            border: 1px solid #8e2c00;
+            background: linear-gradient(to bottom, #fff3d7, #ffb24a);
+            color: #7b2300;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 7px 12px;
+            text-transform: uppercase;
+        }
+
+        .manga-preview-body {
+            padding: 0;
+            background: transparent;
+        }
+
+        .manga-preview-note {
+            display: none;
+        }
+
+        .manga-preview-stage {
+            perspective: 1500px;
+            min-height: min(78vh, 760px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            background: transparent;
+            border: 0;
+        }
+
+        .manga-preview-status {
+            display: none;
+        }
+
+        .manga-container {
+            --book-height: 340px;
+            --cover-width: 225.76px;
+            --book-thickness: 24.14px;
+            --half-thickness: 12.07px;
+            --front-offset: -136px;
+            --spine-offset: -361.76px;
+            --back-offset: -385.9px;
+            --full-cover-url: none;
+            width: var(--cover-width);
+            height: var(--book-height);
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(var(--rotate-y, 25deg)) rotateX(var(--rotate-x, 10deg));
+            transition: transform 0.12s linear;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .manga-face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
+            backface-visibility: hidden;
+        }
+
+        .manga-art-face {
+            background-image: var(--full-cover-url);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            background-position: var(--panel-offset) top;
+        }
+
+        .manga-front {
+            width: var(--cover-width);
+            height: var(--book-height);
+            transform: translateZ(var(--half-thickness));
+            --panel-offset: var(--front-offset);
+        }
+
+        .manga-spine {
+            width: var(--book-thickness);
+            height: var(--book-height);
+            right: 0;
+            left: auto;
+            transform: rotateY(90deg) translateZ(var(--half-thickness));
+            --panel-offset: var(--spine-offset);
+            filter: brightness(0.92);
+        }
+
+        .manga-back {
+            width: var(--cover-width);
+            height: var(--book-height);
+            transform: rotateY(180deg) translateZ(var(--half-thickness));
+            --panel-offset: var(--back-offset);
+        }
+
+        .manga-pages {
+            width: var(--book-thickness);
+            height: var(--book-height);
+            background: repeating-linear-gradient(
+                90deg,
+                #f0f0f0,
+                #f0f0f0 2px,
+                #e0e0e0 2px,
+                #e0e0e0 4px
+            );
+            transform: rotateY(-90deg) translateZ(var(--half-thickness));
+            filter: brightness(0.96);
+        }
+
+        .manga-container.is-dragging {
+            cursor: grabbing;
+        }
+
+        .manga-container.is-back-view .manga-front,
+        .manga-container.is-back-view .manga-spine {
+            filter: brightness(0.7);
+        }
+
+        .manga-container.is-back-view .manga-back {
+            filter: brightness(1);
+        }
+
+        .manga-preview-empty {
+            max-width: 560px;
+            text-align: center;
+            padding: 30px 24px;
+            background: rgba(35, 14, 0, 0.22);
+            border: 1px dashed rgba(255, 212, 142, 0.75);
+            backdrop-filter: blur(10px);
+        }
+
+        .manga-preview-empty h3 {
+            margin: 0 0 10px;
+            font-family: Impact, sans-serif;
+            font-size: 28px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #fff4d6;
+        }
+
+        .manga-preview-empty p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #fff3df;
+        }
+
+        .manga-preview-title {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
     </style>
 </head>
@@ -509,6 +706,206 @@
             </main>
         </div>
     </div>
+    <div class="manga-preview-overlay" id="mangaPreview" aria-hidden="true">
+        <div class="manga-preview-panel" role="dialog" aria-modal="true" aria-labelledby="mangaPreviewTitle">
+            <div class="manga-preview-header">
+                <h2 class="manga-preview-title" id="mangaPreviewTitle">Preview 3D do Mangá</h2>
+                <button type="button" class="manga-preview-close" id="mangaPreviewClose">Fechar</button>
+            </div>
+            <div class="manga-preview-body">
+                <p class="manga-preview-note">Clique em uma capa para abrir a versão em 3D. Passe o mouse sobre o mangá para girar e revelar o verso da jacket completa.</p>
+                <div class="manga-preview-stage" id="mangaPreviewStage"></div>
+                <div class="manga-preview-status" id="mangaPreviewStatus">Selecione um volume para visualizar.</div>
+            </div>
+        </div>
+    </div>
     <script src="radio-player.js"></script>
+    <script>
+        (function () {
+            const fullCoverOverrides = {
+                13: "FULLCOVERS/Naruto%20-%20013%20%5BTHANKS%5D.jpg",
+                53: "FULLCOVERS/Naruto%20-%20053%20%5BTHANKS%5D.jpg",
+                54: "FULLCOVERS/Naruto%20-%20054%20%5BTHANKS%5D.jpg",
+                55: "FULLCOVERS/Naruto%20-%20055%20%5BTHANKs%5D.jpg",
+                56: "FULLCOVERS/Naruto%20-%20056%20%5BTHANKS%5D.jpg",
+                57: "FULLCOVERS/Naruto%20-%20057%20%5BTHANKS%5D.jpg",
+                58: "FULLCOVERS/Naruto%20-%20058%20%5BTHANKS%5D.jpg",
+                60: "FULLCOVERS/Naruto%20-%20060%20%5BTHANKS%5D.jpg",
+                61: "FULLCOVERS/Naruto%20-%20061%20%5BTHX%5D.jpg",
+                62: "FULLCOVERS/Naruto%20-%20062%20%5BTHANKS%20Blacxxanderz%2C%5D.jpg",
+                63: "FULLCOVERS/Naruto%20-%20063%20%5BTHANKS%5D.jpg",
+                66: "FULLCOVERS/Naruto%20-%20066%20%5BTHANKS%5D.jpg",
+                70: "FULLCOVERS/Naruto%20-%20070%20%5BTHANKS%5D.jpg"
+            };
+
+            function getFullCoverPath(volume) {
+                if (fullCoverOverrides[volume]) {
+                    return fullCoverOverrides[volume];
+                }
+
+                if ((volume >= 1 && volume <= 12) || (volume >= 14 && volume <= 52) || volume === 59) {
+                    return "FULLCOVERS/Naruto%20-%20" + String(volume).padStart(3, "0") + ".jpg";
+                }
+
+                return null;
+            }
+
+            function createMangaMarkup(fullCoverUrl) {
+                return `
+                    <div class="manga-container" style="--full-cover-url: url('${fullCoverUrl}'); --rotate-y: 25deg; --rotate-x: 10deg;">
+                        <div class="manga-face manga-art-face manga-front"></div>
+                        <div class="manga-face manga-art-face manga-spine"></div>
+                        <div class="manga-face manga-art-face manga-back"></div>
+                        <div class="manga-face manga-pages"></div>
+                    </div>
+                `;
+            }
+
+            const overlay = document.getElementById("mangaPreview");
+            const closeButton = document.getElementById("mangaPreviewClose");
+            const stage = document.getElementById("mangaPreviewStage");
+            const status = document.getElementById("mangaPreviewStatus");
+            const title = document.getElementById("mangaPreviewTitle");
+            const volumeItems = document.querySelectorAll(".volume-item");
+            let detachDragHandlers = null;
+
+            function syncBackViewState(container, rotateY) {
+                const normalized = ((rotateY % 360) + 360) % 360;
+                const distanceToFront = Math.min(normalized, 360 - normalized);
+                const backFacing = distanceToFront > 90;
+                container.classList.toggle("is-back-view", backFacing);
+            }
+
+            function enableDragRotate(container) {
+                let dragging = false;
+                let startX = 0;
+                let startRotateY = 25;
+                let rotateY = 25;
+                const rotateX = 10;
+
+                function applyRotation() {
+                    container.style.setProperty("--rotate-y", rotateY + "deg");
+                    container.style.setProperty("--rotate-x", rotateX + "deg");
+                    syncBackViewState(container, rotateY);
+                }
+
+                function onPointerMove(event) {
+                    if (!dragging) {
+                        return;
+                    }
+
+                    const deltaX = event.clientX - startX;
+                    rotateY = startRotateY + (deltaX * 0.7);
+                    applyRotation();
+                }
+
+                function stopDragging() {
+                    if (!dragging) {
+                        return;
+                    }
+
+                    dragging = false;
+                    container.classList.remove("is-dragging");
+                    document.removeEventListener("pointermove", onPointerMove);
+                    document.removeEventListener("pointerup", stopDragging);
+                    document.removeEventListener("pointercancel", stopDragging);
+                }
+
+                function onPointerDown(event) {
+                    event.preventDefault();
+                    dragging = true;
+                    startX = event.clientX;
+                    startRotateY = rotateY;
+                    container.classList.add("is-dragging");
+                    document.addEventListener("pointermove", onPointerMove);
+                    document.addEventListener("pointerup", stopDragging);
+                    document.addEventListener("pointercancel", stopDragging);
+                }
+
+                container.addEventListener("pointerdown", onPointerDown);
+                applyRotation();
+
+                return function cleanup() {
+                    stopDragging();
+                    container.removeEventListener("pointerdown", onPointerDown);
+                };
+            }
+
+            function openPreview(volume) {
+                const fullCoverPath = getFullCoverPath(volume);
+                overlay.classList.add("is-open");
+                overlay.setAttribute("aria-hidden", "false");
+                title.textContent = "Preview 3D do Volume " + String(volume).padStart(2, "0");
+
+                if (fullCoverPath) {
+                    stage.innerHTML = createMangaMarkup(fullCoverPath);
+                    status.textContent = "Volume " + String(volume).padStart(2, "0") + " carregado com a jacket completa de FULLCOVERS.";
+                    const container = stage.querySelector(".manga-container");
+                    if (container) {
+                        if (detachDragHandlers) {
+                            detachDragHandlers();
+                        }
+                        detachDragHandlers = enableDragRotate(container);
+                    }
+                } else {
+                    stage.innerHTML = `
+                        <div class="manga-preview-empty">
+                            <h3>Jacket indisponível</h3>
+                            <p>O volume ${String(volume).padStart(2, "0")} ainda não possui imagem correspondente na pasta FULLCOVERS. Quando essa jacket existir, o preview 3D poderá ser exibido aqui automaticamente.</p>
+                        </div>
+                    `;
+                    status.textContent = "Sem FULLCOVER disponível para o volume " + String(volume).padStart(2, "0") + ".";
+                }
+            }
+
+            function closePreview() {
+                overlay.classList.remove("is-open");
+                overlay.setAttribute("aria-hidden", "true");
+                stage.innerHTML = "";
+                if (detachDragHandlers) {
+                    detachDragHandlers();
+                    detachDragHandlers = null;
+                }
+            }
+
+            volumeItems.forEach(function (item) {
+                const label = item.querySelector("span");
+                const match = label ? label.textContent.match(/\d+/) : null;
+                if (!match) {
+                    return;
+                }
+
+                const volume = Number(match[0]);
+                item.setAttribute("tabindex", "0");
+                item.setAttribute("role", "button");
+                item.setAttribute("aria-label", "Abrir preview 3D do Volume " + String(volume).padStart(2, "0"));
+
+                item.addEventListener("click", function () {
+                    openPreview(volume);
+                });
+
+                item.addEventListener("keydown", function (event) {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        openPreview(volume);
+                    }
+                });
+            });
+
+            closeButton.addEventListener("click", closePreview);
+
+            overlay.addEventListener("click", function (event) {
+                if (event.target === overlay) {
+                    closePreview();
+                }
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape" && overlay.classList.contains("is-open")) {
+                    closePreview();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>

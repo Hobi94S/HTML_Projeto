@@ -123,43 +123,83 @@
             text-transform: uppercase;
             border-bottom: 2px dashed #fff;
             padding-bottom: 5px;
-            margin-bottom: 20px;
         }
 
         .content-box h2 {
             font-size: 16px;
             color: #b30000;
-            margin-top: 25px;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             border-bottom: 1px solid #b30000;
-            padding-bottom: 3px;
         }
 
-        .content-box p,
-        .content-box li {
+        .content-box p {
             font-size: 12px;
-            line-height: 1.7;
+            line-height: 1.6;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .retro-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        .retro-table th {
+            background-color: #d35400;
+            color: #fff;
+            padding: 6px;
+            text-align: left;
+            border: 1px solid #a04000;
+        }
+
+        .retro-table td {
+            background-color: #ffb84d;
+            padding: 6px;
+            border: 1px solid #d35400;
             color: #000;
         }
 
-        .explanation-box {
-            background: #ffb84d;
-            border: 1px solid #d35400;
-            padding: 12px;
-            margin-top: 12px;
+        .retro-table tr:nth-child(even) td {
+            background-color: #ffa31a;
         }
 
-        .retro-list {
-            margin: 10px 0 0 18px;
-            padding: 0;
-        }
-
-        .retro-note {
-            margin-top: 18px;
-            padding: 10px 12px;
-            background: #ffd79a;
-            border: 1px dashed #a04000;
+        .retro-table a {
+            color: #000;
+            text-decoration: none;
             font-weight: bold;
+        }
+
+        .retro-table a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        .image-right {
+            float: right;
+            margin: 0 0 10px 15px;
+            border: 2px solid #d35400;
+        }
+
+        .image-left {
+            float: left;
+            margin: 0 15px 10px 0;
+            border: 2px solid #d35400;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .item-section {
+            margin-bottom: 20px;
+        }
+
+        .item-section h3 {
+            font-size: 14px;
+            color: #cc0000;
+            margin: 0 0 5px 0;
         }
     </style>
 </head>
@@ -196,54 +236,60 @@
             </aside>
             <main>
                 <div class="content-box">
-                    <h1>Sobre II</h1>
+                    <h1>Sobre a Entrega II</h1>
+                    <p><strong>Nome do projeto:</strong> NarutoProject<br>
+                        <strong>Componente Curricular:</strong> Programação Web Frontend<br>
+                        <strong>Entrega:</strong> Entrega II<br>
+                        <strong>Estudante:</strong> Gutemberg Nascimento Cunha Garcez
+                    </p>
 
-                    <p>Esta página explica, em português, como foram feitos os dois efeitos mais recentes do site: a radio fixa no canto inferior direito e o efeito hover nas capas de mangá da página de volumes.</p>
+                    <h2>1. Adições e Melhorias da Entrega II</h2>
+                    <p>Na versão final do NarutoProject, o foco foi ampliar a qualidade visual e a interatividade da
+                        aplicação, mantendo a identidade retrô inspirada em portais de anime da internet dos anos 2000.
+                        Como projeto acadêmico da disciplina de Programação Web Frontend, esta etapa destacou o uso
+                        integrado de HTML, CSS e JavaScript para construir uma experiência mais rica, temática e
+                        coerente com a proposta do site.</p>
 
-                    <h2>1. Como a Radio foi adicionada</h2>
-                    <div class="explanation-box">
-                        <p>A radio foi criada como um componente compartilhado do site. Em vez de montar o player separadamente em cada página, foram criados dois arquivos reaproveitáveis:</p>
-                        <ul class="retro-list">
-                            <li><strong>radio-player.css</strong>: responsável por toda a aparência visual da janela da radio.</li>
-                            <li><strong>radio-player.js</strong>: responsável pela criação do player, da playlist e dos controles de reprodução.</li>
-                        </ul>
+                    <h2>2. Radio Fixa Compartilhada</h2>
+                    <p>A versão final do site conta com uma radio fixa compartilhada entre as páginas, reforçando a
+                        ambientação temática e a proposta nostálgica do projeto. Esse recurso demonstra a aplicação de
+                        componentes reutilizáveis no Frontend, já que a mesma interface de player é carregada em
+                        diferentes telas sem perda de consistência visual.</p>
+                    <p>A radio foi estruturada com CSS e JavaScript, reunindo reprodução de áudio, navegação entre
+                        faixas, controle de volume, shuffle e atualização dinâmica das músicas. A playlist utiliza os
+                        arquivos da pasta <strong>Radio</strong>, integrando conteúdo multimídia à interface estática
+                        do site e ampliando a experiência do usuário.</p>
+                    <p>Do ponto de vista visual, o player foi desenhado com referência direta ao estilo Y2K, adotando
+                        janelas compactas, gradientes, molduras fortes e aparência inspirada em antigos players de
+                        internet. Isso contribui para o objetivo do trabalho, que é unir estrutura moderna de código a
+                        uma estética clássica da web.</p>
 
-                        <p>Depois disso, esses dois arquivos foram importados em todas as páginas HTML. Assim, o mesmo player aparece em todo o site, sempre no canto inferior direito.</p>
+                    <h2>3. Hover nas Capas da Página de Volumes</h2>
+                    <p>Na página <strong>Volumes.html</strong>, as capas dos mangás receberam efeitos visuais de hover
+                        que tornam a navegação mais interativa e valorizam a apresentação do conteúdo. Esse recurso foi
+                        desenvolvido com CSS, explorando transições, destaque de borda, variação de escala, brilho e
+                        realce tipográfico para enriquecer a resposta visual ao passar o mouse.</p>
+                    <p>Além de melhorar a usabilidade, esse tipo de efeito demonstra domínio de estilização e
+                        microinterações no Frontend, mostrando como pequenos comportamentos visuais podem tornar a
+                        interface mais envolvente. No contexto acadêmico, esse resultado evidencia o uso prático de
+                        animações, pseudo-elementos e hierarquia visual como ferramentas de design de interface.</p>
+                    <p>A solução foi pensada para combinar com o restante da identidade do NarutoProject, mantendo a
+                        linguagem retrô do site e evitando um acabamento excessivamente moderno, de modo que o efeito
+                        reforce a proposta estética geral da aplicação.</p>
 
-                        <p>No JavaScript, foi usada uma lista com os arquivos MP3 da pasta <strong>Radio</strong>. O script monta a interface automaticamente e também cria a lógica de:</p>
-                        <ul class="retro-list">
-                            <li>play e pause;</li>
-                            <li>próxima e faixa anterior;</li>
-                            <li>shuffle;</li>
-                            <li>controle de volume;</li>
-                            <li>troca automática de música quando uma faixa termina.</li>
-                        </ul>
-
-                        <p>Visualmente, a radio foi desenhada com inspiração em players Y2K e no estilo do radio.blog, usando barra superior de janela, botões em gradiente laranja, sombras aparentes, molduras marcadas e uma área de playlist compacta para manter a estética nostálgica.</p>
-                    </div>
-
-                    <h2>2. Como o Hover das capas foi adicionado</h2>
-                    <div class="explanation-box">
-                        <p>O hover das capas foi feito diretamente no CSS da página <strong>Volumes.html</strong>, sem precisar de JavaScript. A ideia foi deixar as capas mais vivas, mas sem perder a pegada visual retrô do projeto.</p>
-
-                        <p>Cada item da grade de volumes recebeu transições e camadas extras. Quando o usuário passa o mouse por cima de uma capa, acontecem vários efeitos ao mesmo tempo:</p>
-                        <ul class="retro-list">
-                            <li>o card sobe levemente;</li>
-                            <li>a capa aumenta um pouco de tamanho;</li>
-                            <li>a borda fica mais destacada;</li>
-                            <li>aparece um brilho passando pela frente da capa;</li>
-                            <li>uma moldura pontilhada interna surge no card;</li>
-                            <li>o texto do volume ganha mais destaque.</li>
-                        </ul>
-
-                        <p>O brilho foi criado com um pseudo-elemento que atravessa o card em diagonal. Já a moldura interna foi feita com outro pseudo-elemento, que fica invisível no estado normal e aparece apenas no hover. Isso ajuda a reforçar a aparência de botão decorado, muito comum em sites antigos.</p>
-
-                        <p>O resultado final foi pensado para parecer mais com um destaque chamativo de site antigo do que com um efeito moderno minimalista.</p>
-                    </div>
-
-                    <div class="retro-note">
-                        Resumo: a Radio foi criada como um componente compartilhado com CSS + JavaScript, e o Hover das capas foi criado com CSS usando transições, brilho e molduras decorativas.
-                    </div>
+                    <h2>4. Modelos 3D dos Volumes</h2>
+                    <p>Outro destaque da versão final é o sistema de visualização 3D aplicado aos volumes do mangá.
+                        Ao selecionar uma capa em <strong>Volumes.html</strong>, o usuário pode abrir uma representação
+                        tridimensional do volume, construída com HTML, CSS 3D e JavaScript. Esse recurso demonstra a
+                        capacidade do Frontend de criar experiências imersivas mesmo sem o uso de engines 3D externas.</p>
+                    <p>Os modelos utilizam as imagens completas da pasta <strong>FULLCOVERS</strong> para compor capa,
+                        lombada e contracapa, simulando a estrutura física de um volume real. A profundidade visual é
+                        produzida com transformações tridimensionais em CSS, enquanto o JavaScript controla a abertura
+                        do preview e a interação do usuário com o modelo.</p>
+                    <p>Além da exibição do objeto, a interface permite girar manualmente o mangá por meio de clique e
+                        arraste, oferecendo maior controle sobre a visualização. O preview é apresentado com foco total
+                        no volume, sobre um fundo desfocado, priorizando a experiência visual e destacando a aplicação
+                        de interação avançada em um projeto universitário de Frontend.</p>
                 </div>
             </main>
         </div>
